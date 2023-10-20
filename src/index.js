@@ -24,7 +24,7 @@ function displayForm() {
         event.preventDefault();
 
         let location = locationForm.elements["location"].value.replace(/ /g,"+");
-        console.log(getForecast(location));
+        getForecast(location).then(result => console.log(result));
     });
 }
 
