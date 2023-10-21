@@ -1,6 +1,6 @@
 import './css/weather-icons.css';
 import './css/weather-icons.min.css';
-import { getForecast, getConditionIconClass, getMoonPhaseIconClass } from './weather';
+import { getWeather, getConditionIconClass, getMoonPhaseIconClass } from './weather';
 import html from './template.html';
 
 function setFormListener() {
@@ -9,7 +9,7 @@ function setFormListener() {
         event.preventDefault();
 
         let location = locationForm.elements["location-input"].value.replace(/ /g,"+");
-        getForecast(location).then(result => console.log(result));
+        getWeather(location).then(result => console.log(result));
     });
 }
 

@@ -1,7 +1,7 @@
 const API_KEY = '64cbe356cfaf4d1a9bb164616230310';
 const API_URL = 'https://api.weatherapi.com/v1/forecast.json?';
 
-async function getForecast(location = 'valletta', days = '3') {
+async function getWeather(location = 'valletta', days = '3') {
     const response = await fetch(API_URL + 'key=' + API_KEY + '&q=' + location + '&days=' + days + '&aqi=no&alerts=no', {
         mode: 'cors'
     });
@@ -10,11 +10,11 @@ async function getForecast(location = 'valletta', days = '3') {
     // console.log(data);
 
     // process data from WeatherAPI
-    const weather = readForecastData(data);
+    const weather = readWeatherData(data);
     return weather;
 }
 
-function readForecastData(data) {
+function readWeatherData(data) {
 // processes WeatherAPI data for easier access
     let weather = {
         location: {
@@ -251,4 +251,4 @@ function getMoonPhaseIconClass(phase = 'New Moon') {
     }
 }
 
-export { getForecast, getConditionIconClass, getMoonPhaseIconClass };
+export { getWeather, getConditionIconClass, getMoonPhaseIconClass };
