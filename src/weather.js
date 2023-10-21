@@ -7,7 +7,7 @@ async function getForecast(location = 'valletta', days = '3') {
     });
     const data = await response.json();
 
-    console.log(data);
+    // console.log(data);
 
     // process data from WeatherAPI
     const weather = readForecastData(data);
