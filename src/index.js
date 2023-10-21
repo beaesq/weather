@@ -8,7 +8,7 @@ function setFormListener() {
     locationForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        let location = locationForm.elements["location"].value.replace(/ /g,"+");
+        let location = locationForm.elements["location-input"].value.replace(/ /g,"+");
         getForecast(location).then(result => console.log(result));
     });
 }
