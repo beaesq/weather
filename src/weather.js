@@ -228,4 +228,27 @@ function getConditionCode(APICode) {
     return APICode; // hehe
 }
 
-export { getForecast, getConditionIconClass};
+function getMoonPhaseIconClass(phase = 'New Moon') {
+    switch (phase) {
+        case 'New Moon':
+            return 'wi-moon-alt-new';
+        case 'Waxing Crescent':
+            return 'wi-moon-alt-waxing-crescent-3';
+        case 'First Quarter':
+            return 'wi-moon-alt-first-quarter';
+        case 'Waxing Gibbous':
+            return 'wi-moon-alt-waxing-gibbous-3';
+        case 'Full Moon':
+            return 'wi-moon-alt-full';
+        case 'Waning Gibbous':
+            return 'wi-moon-alt-waning-gibbous-3';
+        case 'Last Quarter':
+            return 'wi-moon-alt-third-quarter';
+        case 'Waning Crescent':
+            return 'wi-moon-alt-waning-crescent-3';
+        default:
+            return 'wi-moon-alt-new';
+    }
+}
+
+export { getForecast, getConditionIconClass, getMoonPhaseIconClass };

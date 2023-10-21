@@ -1,6 +1,6 @@
 import './css/weather-icons.css';
 import './css/weather-icons.min.css';
-import { getForecast, getConditionIconClass } from './weather';
+import { getForecast, getConditionIconClass, getMoonPhaseIconClass } from './weather';
 import html from './template.html';
 
 function setFormListener() {
