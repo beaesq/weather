@@ -1,8 +1,219 @@
 <div id="header">
-    <div >
-        <form action="get" id="location-form">
-            <input type="text" name="location" id="location" onfocus="this.value=''" value="Enter a location">
-            <button type="submit">Search</button>
-        </form>
+    <form action="get" id="location-form">
+        <input type="text" name="location" id="location-input" onfocus="this.value=''" value="Enter a location">
+        <button type="submit">Search</button>
+    </form>
+    <div id="temperature">
+        <div>Show temperature in:</div>
+        <input type="radio" name="temperature" id="celsius" value="celsius" checked>
+        <label for="celsius">°C</label>
+        <input type="radio" name="temperature" id="fahrenheit" value="fahrenheit">
+        <label for="fahrenheit">°F</label>
+    </div>
+</div>
+
+<div id="current">
+    <div id="condition-container">
+        <div id="condition-icon">
+            <i class="wi wi-day-sunny"></i>
+        </div>
+        <div id="temperature-container">
+            <div id="temperature">21</div>
+            <div id="temperature-unit" class="unit">°C</div>
+        </div>
+        <div id="condition-text">Sunny</div>
+    </div>
+    <div id="location-container">
+        <div id="location-text">Paris</div>
+        <div id="datetime">Fri Oct 21 8:15 PM</div>
+        <div id="last-updated-container">
+            <div>Last updated</div>
+            <div id="last-updated">8:00 PM</div>
+        </div>
+    </div>
+    <div id="details-container">
+        <div>
+            <div>Humidity:</div>
+            <div id="humidity">60%</div>
+        </div>
+        <div>
+            <div>Feels like:</div>
+            <div id="feels-like-container">
+                <div id="feels-like">21</div>
+                <div id="feels-like-unit" class="unit">°C</div>
+            </div>
+        </div>
+        <div>
+            <div>Precipitation:</div>
+            <div id="precipitation">0.1 mm</div>
+        </div>
+    </div>
+</div>
+
+<div id="forecast">
+    <div id="forecast-0" class="forecast-day">
+        <div class="date-container">
+            <div id="forecast-0-date">Fri Oct 21</div>
+            <div id="forecast-0-moonphase"><i class="wi wi-moon-alt-new"></i></div>
+        </div>
+        <div class="condition-container">
+            <div id="forecast-0-condition-icon"><i class="wi wi-day-sunny"></i></div>
+            <div id="forecast-0-condition-text">Sunny</div>
+        </div>
+        <div class="details-container">
+            <div>
+                <i class="wi wi-thermometer"></i>
+                <div>Temperature</div>
+                <div class="temperature-container">
+                    <div>
+                        <div>High</div>
+                        <div id="forecast-0-maxtemp">28</div>
+                        <div class="unit">°C</div>
+                    </div>
+                    <div>
+                        <div>Low</div>
+                        <div id="forecast-0-mintemp">21</div>
+                        <div class="unit">°C</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="wi wi-humidity"></i>
+                <div>Humidity</div>
+                <div id="forecast-0-humidity">80%</div>
+            </div>
+            <div>
+                <i class="wi wi-umbrella"></i>
+                <div>Chance of Rain</div>
+                <div id="forecast-0-chanceofrain">90%</div>
+            </div>
+            <div>
+                <i class="wi wi-raindrops"></i>
+                <div>Precipitation</div>
+                <div id="forecast-0-precipitation">0.1 mm</div>
+            </div>
+            <div class="sun-container">
+                <div>
+                    <i class="wi wi-sunrise"></i>
+                    <div>Sunrise</div>
+                    <div id="forecast-0-sunrise">5:00 AM</div>
+                </div>
+                <div>
+                    <i class="wi wi-sunset"></i>
+                    <div>Sunset</div>
+                    <div id="forecast-0-sunset">5:00 PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="forecast-1" class="forecast-day">
+        <div class="date-container">
+            <div id="forecast-1-date">Fri Oct 21</div>
+            <div id="forecast-1-moonphase"><i class="wi wi-moon-alt-new"></i></div>
+        </div>
+        <div class="condition-container">
+            <div id="forecast-1-condition-icon"><i class="wi wi-day-sunny"></i></div>
+            <div id="forecast-1-condition-text">Sunny</div>
+        </div>
+        <div class="details-container">
+            <div>
+                <i class="wi wi-thermometer"></i>
+                <div>Temperature</div>
+                <div class="temperature-container">
+                    <div>
+                        <div>High</div>
+                        <div id="forecast-1-maxtemp">28</div>
+                        <div class="unit">°C</div>
+                    </div>
+                    <div>
+                        <div>Low</div>
+                        <div id="forecast-1-mintemp">21</div>
+                        <div class="unit">°C</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="wi wi-humidity"></i>
+                <div>Humidity</div>
+                <div id="forecast-1-humidity">80%</div>
+            </div>
+            <div>
+                <i class="wi wi-umbrella"></i>
+                <div>Chance of Rain</div>
+                <div id="forecast-1-chanceofrain">90%</div>
+            </div>
+            <div>
+                <i class="wi wi-raindrops"></i>
+                <div>Precipitation</div>
+                <div id="forecast-1-precipitation">0.1 mm</div>
+            </div>
+            <div class="sun-container">
+                <div>
+                    <i class="wi wi-sunrise"></i>
+                    <div>Sunrise</div>
+                    <div id="forecast-1-sunrise">5:00 AM</div>
+                </div>
+                <div>
+                    <i class="wi wi-sunset"></i>
+                    <div>Sunset</div>
+                    <div id="forecast-1-sunset">5:00 PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="forecast-2" class="forecast-day">
+        <div class="date-container">
+            <div id="forecast-2-date">Fri Oct 21</div>
+            <div id="forecast-2-moonphase"><i class="wi wi-moon-alt-new"></i></div>
+        </div>
+        <div class="condition-container">
+            <div id="forecast-2-condition-icon"><i class="wi wi-day-sunny"></i></div>
+            <div id="forecast-2-condition-text">Sunny</div>
+        </div>
+        <div class="details-container">
+            <div>
+                <i class="wi wi-thermometer"></i>
+                <div>Temperature</div>
+                <div class="temperature-container">
+                    <div>
+                        <div>High</div>
+                        <div id="forecast-2-maxtemp">28</div>
+                        <div class="unit">°C</div>
+                    </div>
+                    <div>
+                        <div>Low</div>
+                        <div id="forecast-2-mintemp">21</div>
+                        <div class="unit">°C</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="wi wi-humidity"></i>
+                <div>Humidity</div>
+                <div id="forecast-2-humidity">80%</div>
+            </div>
+            <div>
+                <i class="wi wi-umbrella"></i>
+                <div>Chance of Rain</div>
+                <div id="forecast-2-chanceofrain">90%</div>
+            </div>
+            <div>
+                <i class="wi wi-raindrops"></i>
+                <div>Precipitation</div>
+                <div id="forecast-2-precipitation">0.1 mm</div>
+            </div>
+            <div class="sun-container">
+                <div>
+                    <i class="wi wi-sunrise"></i>
+                    <div>Sunrise</div>
+                    <div id="forecast-2-sunrise">5:00 AM</div>
+                </div>
+                <div>
+                    <i class="wi wi-sunset"></i>
+                    <div>Sunset</div>
+                    <div id="forecast-2-sunset">5:00 PM</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
