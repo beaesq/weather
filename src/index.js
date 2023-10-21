@@ -1,24 +1,9 @@
 import './css/weather-icons.css';
 import './css/weather-icons.min.css';
 import { getForecast, getConditionIconClass } from './weather';
+import html from './template.html';
 
-function displayForm() {
-    let form = document.createElement('form');
-    form.setAttribute('id', 'location-form');
-
-    let input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    input.setAttribute('id', 'location');
-    input.setAttribute('name', 'location');
-    form.appendChild(input);
-
-    let button = document.createElement('button');
-    button.setAttribute('type', 'submit')
-    button.innerHTML = 'Search';
-    form.appendChild(button);
-
-    document.body.appendChild(form);
-
+function setFormListener() {
     const locationForm = document.querySelector('#location-form');
     locationForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -28,8 +13,9 @@ function displayForm() {
     });
 }
 
-getForecast('new+york');
-
-displayForm();
-
+window.onload = function() {
+    console.log('hi');
+    document.body.innerHTML = html;
+    setFormListener();
+}
 // document.body.innerHTML = `<i class="wi ${getConditionIconClass(1003, true)}"></i>`;
