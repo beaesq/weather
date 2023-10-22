@@ -3,12 +3,19 @@
         <input type="text" name="location" id="location-input" onfocus="this.value=''" value="Enter a location">
         <button type="submit">Search</button>
     </form>
-    <div id="temperature">
+    <!-- <div id="temperature">
         <div>Show temperature in:</div>
         <input type="radio" name="temperature" id="celsius" value="celsius" checked>
         <label for="celsius">°C</label>
         <input type="radio" name="temperature" id="fahrenheit" value="fahrenheit">
         <label for="fahrenheit">°F</label>
+    </div> -->
+    <div >
+        <label class="toggle" >
+            <input type="checkbox" id="temp-toggle">
+            <span class="slider"></span>
+            <span class="labels" data-off="°C" data-on="°F"></span>
+        </label>
     </div>
 </div>
 

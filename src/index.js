@@ -2,8 +2,10 @@ import './css/weather-icons.css';
 import './css/weather-icons.min.css';
 import { getWeather, getConditionIconClass, getMoonPhaseIconClass } from './weather';
 import html from './template.html';
+import './style.css';
 
 let isFahrenheit = false;
+let currentWeather;
 
 function setFormListener() {
     const locationForm = document.querySelector('#location-form');
@@ -15,15 +17,35 @@ function setFormListener() {
     });
 }
 
+function setTempToggleListener() {
+    const toggle = document.querySelector('#temp-toggle');
+    toggle.addEventListener('click', (event) => {
+        isFahrenheit = !isFahrenheit;
+        
+        updateDisplay(currentWeather);
+        updateTempUnitDisplay(isFahrenheit);
+        console.log(isFahrenheit);
+    });
+}
+
+function updateTempUnitDisplay(isFahrenheit) {
+    const divs = document.querySelectorAll('.unit');
+    for (let index = 0; index < divs.length; index++) {
+        divs[index].innerHTML = isFahrenheit ? '°F' : '°C';
+    }
+}
+
 window.onload = function() {
     document.body.innerHTML = html;
     setFormListener();
     getWeather('Seoul').then(result => updateDisplay(result));
     console.log('hi');
+    setTempToggleListener();
 }
 
 function updateDisplay(weather) {
     console.log(weather);
+    currentWeather = weather;
 
     updateCurrentDisplay(weather);
     updateForecastDisplay(weather);
