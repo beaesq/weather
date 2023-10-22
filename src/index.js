@@ -59,7 +59,7 @@ function updateCurrentDisplay(weather) {
 
     document.querySelector('#location-text').innerHTML = weather.location.name;
     document.querySelector('#datetime').innerHTML = weather.location.localtime.toLocaleString('en-GB', {hourCycle: 'h12', hour12: true, weekday:'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: weather.location.tz});
-    document.querySelector('#last-updated').innerHTML = weather.current.last_updated.toLocaleString('en-GB', {hourCycle: 'h12', hour12: true, timeStyle: 'short', timeZone: weather.location.tz});
+    document.querySelector('#last-updated').innerHTML = 'Last updated ' + weather.current.last_updated.toLocaleString('en-GB', {hourCycle: 'h12', hour12: true, timeStyle: 'short', timeZone: weather.location.tz});
 
     document.querySelector('#humidity').innerHTML = weather.current.humidity + '%';
     document.querySelector('#feels-like').innerHTML = isFahrenheit ? weather.current.feelslike_f : weather.current.feelslike_c;
