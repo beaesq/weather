@@ -3,13 +3,6 @@
         <input type="text" name="location" id="location-input" onfocus="this.value=''" value="Enter a location">
         <button type="submit">Search</button>
     </form>
-    <!-- <div id="temperature">
-        <div>Show temperature in:</div>
-        <input type="radio" name="temperature" id="celsius" value="celsius" checked>
-        <label for="celsius">°C</label>
-        <input type="radio" name="temperature" id="fahrenheit" value="fahrenheit">
-        <label for="fahrenheit">°F</label>
-    </div> -->
     <div >
         <label class="toggle" >
             <input type="checkbox" id="temp-toggle">
@@ -23,6 +16,7 @@
     <div id="condition-container">
         <i class="wi wi-day-sunny" id="condition-icon"></i>
         <div id="temperature-container">
+            <i class="wi wi-thermometer"></i>
             <div id="current-temperature">21</div>
             <div id="temperature-unit" class="unit">°C</div>
         </div>
@@ -38,10 +32,12 @@
     </div>
     <div id="details-container">
         <div>
+            <i class="wi wi-humidity"></i>
             <div>Humidity:</div>
             <div id="humidity">60%</div>
         </div>
         <div>
+            <i class="wi wi-stars"></i>
             <div>Feels like:</div>
             <div id="feels-like-container">
                 <div id="feels-like">21</div>
@@ -49,6 +45,7 @@
             </div>
         </div>
         <div>
+            <i class="wi wi-raindrops"></i>
             <div>Precipitation:</div>
             <div id="precipitation">0.1 mm</div>
         </div>

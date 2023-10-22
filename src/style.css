@@ -1,12 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+* {
+    font-family: 'Dosis', sans-serif;
+    --detail-color: #f408a3;
+    --background-color: #001474;
+    --text-color: #fabdd7;
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+#forecast {
+    display: flex;
+    flex-direction: row;
+}
+
 .toggle {
-    --width: 80px;
-    --height: calc(var(--width) / 3);
+    --width: 55px;
+    --height: 26px;
 
     position: relative;
     display: inline-block;
     width: var(--width);
     height: var(--height);
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
     border-radius: var(--height);
     cursor: pointer;
   }
@@ -22,8 +41,9 @@
     width: 100%;
     height: 100%;
     border-radius: var(--height);
-    background-color: #ccc;
+    background-color: var(--detail-color);
     transition: all 0.4s ease-in-out;
+    border: #f408a3 solid 4px;
   }
 
   .toggle .slider::before {
@@ -34,13 +54,13 @@
     width: calc(var(--height));
     height: calc(var(--height));
     border-radius: calc(var(--height) / 2);
-    background-color: #fff;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-color);
+    /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
     transition: all 0.4s ease-in-out;
   }
 
   .toggle input:checked+.slider {
-    background-color: #2196F3;
+    background-color: var(--detail-color);
   }
 
   .toggle input:checked+.slider::before {
@@ -61,20 +81,24 @@
   .toggle .labels::after {
     content: attr(data-off);
     position: absolute;
-    right: 5px;
-    color: #4d4d4d;
+    right: 3px;
+    color: var(--text-color);
     opacity: 1;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    font-size: 14px;
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */
     transition: all 0.4s ease-in-out;
   }
 
   .toggle .labels::before {
     content: attr(data-on);
     position: absolute;
-    left: 5px;
-    color: #ffffff;
+    left: 8px;
+    color: var(--text-color);
     opacity: 0;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+    font-size: 14px;
+    /* text-shadow: 1px 1px 2px rgb(255, 255, 255); */
     transition: all 0.4s ease-in-out;
   }
 
