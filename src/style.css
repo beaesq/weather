@@ -6,15 +6,69 @@
     --background-color: #001474;
     --text-color: #fabdd7;
     color: var(--text-color);
+    font-size: 18px;
 }
 
 body {
     background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#forecast {
+/* =============
+      HEADER
+   ============= */
+
+#header {
+    margin: 40px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
+    align-self: stretch;
+    align-items: center;
+}
+
+#location-form {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 5px;
+}
+
+input[type=text] {
+    background-color: var(--background-color);
+    box-shadow: none;
+    border-radius: 20px;
+    border: var(--detail-color) solid 4px;
+    padding: 3px 13px;
+}
+
+input[type=text]:focus {
+    border: var(--detail-color) solid 4px;
+    background-color: var(--background-color);
+    outline: none;
+}
+
+button {
+    background-color: var(--background-color);
+    box-shadow: none;
+    border-radius: 20px;
+    border: var(--background-color) solid 4px;
+    padding: 3px 10px;
+    cursor: pointer;
+    color: var(--detail-color);
+}
+
+button:hover {
+    border: var(--detail-color) solid 4px;
+}
+
+button:active {
+    background-color: var(--detail-color);
+    color: var(--text-color);
 }
 
 .toggle {
@@ -43,7 +97,7 @@ body {
     border-radius: var(--height);
     background-color: var(--detail-color);
     transition: all 0.4s ease-in-out;
-    border: #f408a3 solid 4px;
+    border: var(--detail-color) solid 4px;
   }
 
   .toggle .slider::before {
@@ -69,13 +123,12 @@ body {
 
   .toggle .labels {
     position: absolute;
-    top: 8px;
+    top: 7px;
     left: 0;
     width: 100%;
     height: 100%;
     font-size: 12px;
-    font-family: sans-serif;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   .toggle .labels::after {
@@ -85,21 +138,21 @@ body {
     color: var(--text-color);
     opacity: 1;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   .toggle .labels::before {
     content: attr(data-on);
     position: absolute;
-    left: 8px;
+    left: 10px;
     color: var(--text-color);
     opacity: 0;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     /* text-shadow: 1px 1px 2px rgb(255, 255, 255); */
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 
   .toggle input:checked~.labels::after {
@@ -109,3 +162,268 @@ body {
   .toggle input:checked~.labels::before {
     opacity: 1;
   }
+
+/* =============
+      CURRENT 
+   ============= */
+
+#current {
+    margin: 40px;
+    display: grid;
+    width: min(600px, 80%);
+    height: fit-content;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 40px;
+    grid-template-areas: 
+    "condition location"
+    "details details";
+}
+
+#condition-container {
+    grid-area: condition;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: max-content max-content;
+    grid-template-areas: 
+    "icon temperature"
+    "text text";
+}
+
+#condition-container>i {
+    grid-area: icon;
+    font-size: 100px;
+    padding-bottom: 20px;
+}
+
+#temperature-container {
+    padding-left: 20px;
+    grid-area: temperature;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#temperature-container>i {
+    font-size: 25px;
+    padding-right: 8px;
+    color: var(--detail-color);
+}
+
+#current-temperature {
+    font-size: 50px;
+    align-self: center;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+
+#temperature-container>.unit {
+    font-size: 25px;
+}
+
+#condition-text {
+    grid-area: text;
+    font-size: 24px;
+    padding-left: 2px;
+}
+
+#location-container {
+    grid-area: location;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+#location-text {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+#datetime {
+    font-size: 22px;
+}
+
+#last-updated {
+    margin-top: 6px;
+    width: fit-content;
+    color: var(--detail-color);
+}
+
+#details-container {
+    grid-area: details;
+}
+
+#details-container>div {
+    display: grid;
+    grid-template-areas: 
+    "icon label"
+    "icon value";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 50px 1fr;
+    column-gap: 5px;
+    margin-bottom: 10px;
+}
+
+#details-container>div>i {
+    grid-area: icon;
+    font-size: 30px;
+    align-self: center;
+    justify-self: center;
+    color: var(--detail-color);
+}
+
+#details-container>div>i.wi-raindrops {
+    /* override because this guy is SMALL */
+    font-size: 42px;
+}
+
+#details-container>div>.detail-label {
+    grid-area: label;
+    color: var(--detail-color);
+    font-size: 16px;
+}
+
+#details-container>div>.value {
+    grid-area: value;
+    font-size: 22px;
+}
+
+#feels-like-container>div {
+    font-size: 22px;
+}
+
+#feels-like-container {
+    display: flex;
+}
+
+/* ==============
+      FORECAST
+   ============== */
+
+#forecast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#forecast-container>.header {
+    color: var(--detail-color);
+    font-size: 24px;
+}
+
+#forecast {
+    margin-top: 20px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#forecast>.forecast-day {
+    margin-left: 25px;
+    margin-right: 25px;
+    display: grid;
+    grid-template-columns: minmax(150px, 250px);
+    grid-template-rows: auto auto auto;
+    row-gap: 10px;
+}
+
+.forecast-day .date-container {
+    display: flex;
+    justify-content: center;
+}
+
+.forecast-day .date-container>div {
+    font-size: 24px;
+}
+
+.forecast-day .date-container>i {
+    font-size: 28px;
+    color: var(--detail-color);
+    align-self: center;
+    margin-left: 8px;
+}
+
+.forecast-day .condition-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.forecast-day .condition-container>i {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.forecast-day .condition-container>div {
+    font-size: 20px;
+}
+
+.forecast-day .details-container {
+    margin-top: 10px;
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 13px;
+}
+
+.forecast-day .details-container>div {
+    display: grid;
+    grid-template-areas: 
+    "icon label"
+    "icon value";
+    grid-template-columns: 33px 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 3px;
+}
+
+.forecast-day .details-container>div i {
+    grid-area: icon;
+    color: var(--detail-color);
+    font-size: 22px;
+    align-self: center;
+    justify-self: center;
+    margin-right: 8px;
+}
+
+.forecast-day .details-container>div i.wi-raindrops {
+    font-size: 34px;
+}
+
+.forecast-day .details-container>div .detail-label {
+    /* grid-area: label; */
+    color: var(--detail-color);
+    font-size: 16px;
+    align-self: center;
+}
+
+.forecast-day .details-container>div .value {
+    grid-area: value;
+}
+
+.forecast-day .details-container>div>.temperature-container {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.forecast-day .details-container>div>.temperature-container>div {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 35px min-content min-content;
+}
+
+.forecast-day .details-container .sun-container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+}
+
+.forecast-day .details-container .sun-container>div {
+    display: grid;
+    grid-template-areas: 
+    "icon label"
+    "icon value";
+    grid-template-columns: 33px 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 3px;
+}
