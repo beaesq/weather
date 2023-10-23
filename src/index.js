@@ -37,6 +37,12 @@ function updateTempUnitDisplay(isFahrenheit) {
 
 window.onload = function() {
     document.body.innerHTML = html;
+
+    let meta = document.createElement('meta');
+    meta.setAttribute('name', 'viewport');
+    meta.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    document.head.appendChild(meta);
+    
     setFormListener();
     getWeather('Seoul').then(result => updateDisplay(result));
     console.log('hi');
