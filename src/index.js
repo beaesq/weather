@@ -1,7 +1,9 @@
 import './css/weather-icons.css';
 import './css/weather-icons.min.css';
 import { getWeather, getConditionIconClass, getMoonPhaseIconClass } from './weather';
-import html from './template.html';
+import header from './header.html';
+import content from './content.html';
+import loader from './loader.html';
 import './style.css';
 
 let isFahrenheit = false;
@@ -11,6 +13,12 @@ function setFormListener() {
     const locationForm = document.querySelector('#location-form');
     locationForm.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        const current = document.getElementById('current');
+        document.body.removeChild(current);
+        const forecast = document.getElementById('forecast-container');
+        document.body.removeChild(forecast);
+        document.body.insertAdjacentHTML('beforeend', loader);
 
         let location = locationForm.elements["location-input"].value.replace(/ /g,"+");
         getWeather(location).then(result => updateDisplay(result));
@@ -22,7 +30,8 @@ function setTempToggleListener() {
     toggle.addEventListener('click', (event) => {
         isFahrenheit = !isFahrenheit;
         
-        updateDisplay(currentWeather);
+        updateCurrentDisplay(currentWeather);
+        updateForecastDisplay(currentWeather);
         updateTempUnitDisplay(isFahrenheit);
         console.log(isFahrenheit);
     });
@@ -36,13 +45,13 @@ function updateTempUnitDisplay(isFahrenheit) {
 }
 
 window.onload = function() {
-    document.body.innerHTML = html;
+    document.body.innerHTML = header + loader;
 
     let meta = document.createElement('meta');
     meta.setAttribute('name', 'viewport');
     meta.setAttribute('content', 'width=device-width, initial-scale=1.0');
     document.head.appendChild(meta);
-    
+
     setFormListener();
     getWeather('Seoul').then(result => updateDisplay(result));
     console.log('hi');
@@ -52,6 +61,10 @@ window.onload = function() {
 function updateDisplay(weather) {
     console.log(weather);
     currentWeather = weather;
+
+    const loader = document.getElementById('loader');
+    document.body.removeChild(loader);
+    document.body.insertAdjacentHTML('beforeend', content);
 
     updateCurrentDisplay(weather);
     updateForecastDisplay(weather);

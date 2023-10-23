@@ -20,6 +20,11 @@ body {
     margin-right: auto;
 }
 
+#loader {
+    font-size: 40px;
+    color: var(--detail-color);
+}
+
 /* =============
       HEADER
    ============= */
