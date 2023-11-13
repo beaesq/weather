@@ -2,7 +2,7 @@
 
 * {
     font-family: 'Dosis', sans-serif;
-    --detail-color: #F835B4;
+    --detail-color: #f408a3;
     --background-color: #001474;
     --text-color: #fabdd7;
     color: var(--text-color);
@@ -87,13 +87,13 @@ button:active {
     /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
     border-radius: var(--height);
     cursor: pointer;
-}
+  }
 
-.toggle input {
+  .toggle input {
     display: none;
-}
+  }
 
-.toggle .slider {
+  .toggle .slider {
     position: absolute;
     top: 0;
     left: 0;
@@ -103,9 +103,9 @@ button:active {
     background-color: var(--detail-color);
     transition: all 0.4s ease-in-out;
     border: var(--detail-color) solid 4px;
-}
+  }
 
-.toggle .slider::before {
+  .toggle .slider::before {
     content: '';
     position: absolute;
     top: 0;
@@ -116,17 +116,17 @@ button:active {
     background-color: var(--background-color);
     /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
     transition: all 0.4s ease-in-out;
-}
+  }
 
-.toggle input:checked+.slider {
+  .toggle input:checked+.slider {
     background-color: var(--detail-color);
-}
+  }
 
-.toggle input:checked+.slider::before {
+  .toggle input:checked+.slider::before {
     transform: translateX(calc(var(--width) - var(--height)));
-}
+  }
 
-.toggle .labels {
+  .toggle .labels {
     position: absolute;
     top: 7px;
     left: 0;
@@ -134,9 +134,9 @@ button:active {
     height: 100%;
     font-size: 12px;
     transition: all 0.3s ease-in-out;
-}
+  }
 
-.toggle .labels::after {
+  .toggle .labels::after {
     content: attr(data-off);
     position: absolute;
     right: 3px;
@@ -146,9 +146,9 @@ button:active {
     font-size: 16px;
     /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */
     transition: all 0.3s ease-in-out;
-}
+  }
 
-.toggle .labels::before {
+  .toggle .labels::before {
     content: attr(data-on);
     position: absolute;
     left: 10px;
@@ -158,15 +158,15 @@ button:active {
     font-size: 16px;
     /* text-shadow: 1px 1px 2px rgb(255, 255, 255); */
     transition: all 0.3s ease-in-out;
-}
+  }
 
-.toggle input:checked~.labels::after {
+  .toggle input:checked~.labels::after {
     opacity: 0;
-}
+  }
 
-.toggle input:checked~.labels::before {
+  .toggle input:checked~.labels::before {
     opacity: 1;
-}
+  }
 
 /* =============
       CURRENT 
@@ -180,9 +180,9 @@ button:active {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto;
     row-gap: 40px;
-    grid-template-areas:
-        "condition location"
-        "details details";
+    grid-template-areas: 
+    "condition location"
+    "details details";
 }
 
 #condition-container {
@@ -190,9 +190,9 @@ button:active {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: max-content max-content;
-    grid-template-areas:
-        "icon temperature"
-        "text text";
+    grid-template-areas: 
+    "icon temperature"
+    "text text";
 }
 
 #condition-container>i {
@@ -260,9 +260,9 @@ button:active {
 
 #details-container>div {
     display: grid;
-    grid-template-areas:
-        "icon label"
-        "icon value";
+    grid-template-areas: 
+    "icon label"
+    "icon value";
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 50px 1fr;
     column-gap: 5px;
@@ -374,9 +374,9 @@ button:active {
 
 .forecast-day .details-container>div {
     display: grid;
-    grid-template-areas:
-        "icon label"
-        "icon value";
+    grid-template-areas: 
+    "icon label"
+    "icon value";
     grid-template-columns: 33px 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 3px;
@@ -425,59 +425,10 @@ button:active {
 
 .forecast-day .details-container .sun-container>div {
     display: grid;
-    grid-template-areas:
-        "icon label"
-        "icon value";
+    grid-template-areas: 
+    "icon label"
+    "icon value";
     grid-template-columns: 33px 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 3px;
-}
-
-@media screen and (max-width:800px) {
-    #forecast {
-        flex-direction: column;
-    }
-
-    #current {
-        grid-template-areas:
-            "location"
-            "condition"
-            "details";
-        grid-template-columns: auto;
-    }
-
-    #condition-container {
-        grid-template-areas:
-            "icon"
-            "temperature"
-            "text";
-        grid-template-columns: auto;
-        justify-content: center;
-    }
-
-    #condition-container>i {
-        text-align: center;
-    }
-
-    #temperature-container {
-        padding: 0;
-        justify-content: center;
-    }
-
-    #condition-text {
-        text-align: center;
-    }
-
-    #header {
-        flex-direction: column;
-    }
-
-    input[type=text] {
-        width: max(20vw, 150px);
-        margin-top: 20px;
-    }
-
-    #header>div {
-        align-self: flex-start;
-    }
 }
