@@ -20,7 +20,12 @@ body {
     margin-right: auto;
 }
 
-#loader {
+#loader p {
+    text-align: center;
+    color: var(--detail-color);
+}
+
+#loader .loading {
     font-size: 40px;
     color: var(--detail-color);
 }
@@ -41,6 +46,7 @@ body {
     display: grid;
     grid-auto-flow: column;
     column-gap: 5px;
+    align-items: center;
 }
 
 input[type=text] {
@@ -65,6 +71,7 @@ button {
     padding: 3px 10px;
     cursor: pointer;
     color: var(--detail-color);
+    height: fit-content;
 }
 
 button:hover {
@@ -470,11 +477,15 @@ button:active {
 
     #header {
         flex-direction: column;
+        margin: 40px 5vw;
+    }
+
+    #location-form {
+        margin-top: 20px;
     }
 
     input[type=text] {
-        width: max(20vw, 150px);
-        margin-top: 20px;
+        width: max(30vw, 100px);
     }
 
     #header>div {
